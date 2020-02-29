@@ -1,19 +1,15 @@
-var currentDate = moment().format("MMM Do YYYY");
-var date = $('#currentDay');
-date.text(currentDate);
-
+$('#currentDay').text(moment().format("MMM Do YYYY"));
+var time = parseInt(moment().format('H'));
 var containerEl = $('.container');
-
-var div9am = $('<div>');
-var div10am = $('<div>');
-var div11am = $('<div>');
-var div12pm = $('<div>');
-var div1pm = $('<div>');
-var div2pm = $('<div>');
-var div3pm = $('<div>');
-var div4pm = $('<div>');
-var div5pm = $('<div>');
-
+var div9am = $('<div>').val(9);
+var div10am = $('<div>').val(10);
+var div11am = $('<div>').val(11);
+var div12pm = $('<div>').val(12);
+var div1pm = $('<div>').val(13);
+var div2pm = $('<div>').val(14);
+var div3pm = $('<div>').val(15);
+var div4pm = $('<div>').val(16);
+var div5pm = $('<div>').val(17);
 var textarea9am = $('<input>');
 var textarea10am = $('<input>');
 var textarea11am = $('<input>');
@@ -23,7 +19,6 @@ var textarea2pm = $('<input>');
 var textarea3pm = $('<input>');
 var textarea4pm = $('<input>');
 var textarea5pm = $('<input>');
-
 var saveBtn9am = $('<button>');
 var saveBtn10am = $('<button>');
 var saveBtn11am = $('<button>');
@@ -34,59 +29,35 @@ var saveBtn3pm = $('<button>');
 var saveBtn4pm = $('<button>');
 var saveBtn5pm = $('<button>');
 
+div9am.addClass(' hour row').text('9AM').append(textarea9am).append(saveBtn9am);
+div10am.addClass('hour row').text('10AM').append(textarea10am).append(saveBtn10am);
+div11am.addClass('hour row').text('11AM').append(textarea11am).append(saveBtn11am);
+div12pm.addClass('hour row').text('12PM').append(textarea12pm).append(saveBtn12pm);
+div1pm.addClass('hour row').text('1PM').append(textarea1pm).append(saveBtn1pm);
+div2pm.addClass('hour row').text('2PM').append(textarea2pm).append(saveBtn2pm);
+div3pm.addClass('hour row').text('3PM').append(textarea3pm).append(saveBtn3pm);
+div4pm.addClass('hour row').text('4PM').append(textarea4pm).append(saveBtn4pm);
+div5pm.addClass('hour row').text('5PM').append(textarea5pm).append(saveBtn5pm);
 
-div9am.text('9AM');
-div10am.text('10AM');
-div11am.text('11AM');
-div12pm.text('12PM');
-div1pm.text('1PM');
-div2pm.text('2PM');
-div3pm.text('3PM');
-div4pm.text('4PM');
-div5pm.text('5PM');
+textarea9am.addClass('textarea description ml-3');
+textarea10am.addClass('textarea description ml-2');
+textarea11am.addClass('textarea description ml-2');
+textarea12pm.addClass('textarea description ml-2');
+textarea1pm.addClass('textarea description ml-3');
+textarea2pm.addClass('textarea description ml-3');
+textarea3pm.addClass('textarea description ml-3');
+textarea4pm.addClass('textarea description ml-3');
+textarea5pm.addClass('textarea description ml-3');
 
-saveBtn9am.text('save');
-saveBtn10am.text('save');
-saveBtn11am.text('save');
-saveBtn12pm.text('save');
-saveBtn1pm.text('save');
-saveBtn2pm.text('save');
-saveBtn3pm.text('save');
-saveBtn4pm.text('save');
-saveBtn5pm.text('save');
-
-
-div9am.addClass(' hour row').append(textarea9am).append(saveBtn9am);
-div10am.addClass('hour row').append(textarea10am).append(saveBtn10am);
-div11am.addClass('hour row').append(textarea11am).append(saveBtn11am);
-div12pm.addClass('hour row').append(textarea12pm).append(saveBtn12pm);
-div1pm.addClass('hour row').append(textarea1pm).append(saveBtn1pm);
-div2pm.addClass('hour row').append(textarea2pm).append(saveBtn2pm);
-div3pm.addClass('hour row').append(textarea3pm).append(saveBtn3pm);
-div4pm.addClass('hour row').append(textarea4pm).append(saveBtn4pm);
-div5pm.addClass('hour row').append(textarea5pm).append(saveBtn5pm);
-
-textarea9am.addClass('textarea description');
-textarea10am.addClass('textarea description');
-textarea11am.addClass('textarea description');
-textarea12pm.addClass('textarea description');
-textarea1pm.addClass('textarea description');
-textarea2pm.addClass('textarea description');
-textarea3pm.addClass('textarea description');
-textarea4pm.addClass('textarea description');
-textarea5pm.addClass('textarea description');
-
-
-saveBtn9am.addClass('saveBtn');
-saveBtn10am.addClass('saveBtn');
-saveBtn11am.addClass('saveBtn');
-saveBtn12pm.addClass('saveBtn');
-saveBtn1pm.addClass('saveBtn');
-saveBtn2pm.addClass('saveBtn');
-saveBtn3pm.addClass('saveBtn');
-saveBtn4pm.addClass('saveBtn');
-saveBtn5pm.addClass('saveBtn');
-
+saveBtn9am.addClass('saveBtn').text('save');
+saveBtn10am.addClass('saveBtn').text('save');
+saveBtn11am.addClass('saveBtn').text('save');
+saveBtn12pm.addClass('saveBtn').text('save');
+saveBtn1pm.addClass('saveBtn').text('save');
+saveBtn2pm.addClass('saveBtn').text('save');
+saveBtn3pm.addClass('saveBtn').text('save');
+saveBtn4pm.addClass('saveBtn').text('save');
+saveBtn5pm.addClass('saveBtn').text('save');
 
 containerEl.append(div9am);
 containerEl.append(div10am);
@@ -99,15 +70,73 @@ containerEl.append(div4pm);
 containerEl.append(div5pm);
 
 
+function updateTimeColors() {
 
-// div9am.append(textarea);
-// div9am.append(textarea);
-// div9am.append(textarea);
-// div9am.append(textarea);
-// div9am.append(textarea);
-// div9am.append(textarea);
-// div9am.append(textarea);
-// div9am.append(textarea);
-// div9am.append(textarea);
+    if (div9am.val() < time) {
+        textarea9am.addClass('past')
+    } else if (div9am.val() > time) {
+        textarea9am.addClass('future')
+    } else {
+        textarea9am.addClass('present')
+    }
+    if (div10am.val() < time) {
+        textarea10am.addClass('past')
+    } else if (div9am.val() > time) {
+        textarea10am.addClass('future')
+    } else {
+        textarea10am.addClass('present')
+    }
+    if (div11am.val() < time) {
+        textarea11am.addClass('past')
+    } else if (div11am.val() > time) {
+        textarea11am.addClass('future')
+    } else {
+        textarea11am.addClass('present')
+    }
+    if (div12pm.val() < time) {
+        textarea12pm.addClass('past')
+    } else if (div12pm.val() > time) {
+        textarea12pm.addClass('future')
+    } else {
+        textarea12pm.addClass('present')
+    }
+    if (div1pm.val() < time) {
+        textarea1pm.addClass('past')
+    } else if (div1pm.val() > time) {
+        textarea1pm.addClass('future')
+    } else {
+        textarea1pm.addClass('present')
+    }
+    if (div2pm.val() < time) {
+        textarea2pm.addClass('past')
+    } else if (div2pm.val() > time) {
+        textarea2pm.addClass('future')
+    } else {
+        textarea2pm.addClass('present')
+    }
+    if (div3pm.val() < time) {
+        textarea3pm.addClass('past')
+    } else if (div3pm.val() > time) {
+        textarea3pm.addClass('future')
+    } else {
+        textarea3pm.addClass('present')
+    }
+    if (div4pm.val() < time) {
+        textarea4pm.addClass('past')
+    } else if (div4pm.val() > time) {
+        textarea4pm.addClass('future')
+    } else {
+        textarea4pm.addClass('present')
+    }
+    if (div5pm.val() < time) {
+        textarea5pm.addClass('past')
+    } else if (div5pm.val() > time) {
+        textarea5pm.addClass('future')
+    } else {
+        textarea5pm.addClass('present')
+    }
+}
 
-// div9am.append(saveBtn9am);
+
+
+updateTimeColors();
