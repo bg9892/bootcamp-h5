@@ -10,24 +10,24 @@ var div2pm = $('<div>').val(14);
 var div3pm = $('<div>').val(15);
 var div4pm = $('<div>').val(16);
 var div5pm = $('<div>').val(17);
-var textarea9am = $('<input>');
-var textarea10am = $('<input>');
-var textarea11am = $('<input>');
-var textarea12pm = $('<input>');
-var textarea1pm = $('<input>');
-var textarea2pm = $('<input>');
-var textarea3pm = $('<input>');
-var textarea4pm = $('<input>');
-var textarea5pm = $('<input>');
-var saveBtn9am = $('<button>');
-var saveBtn10am = $('<button>');
-var saveBtn11am = $('<button>');
-var saveBtn12pm = $('<button>');
-var saveBtn1pm = $('<button>');
-var saveBtn2pm = $('<button>');
-var saveBtn3pm = $('<button>');
-var saveBtn4pm = $('<button>');
-var saveBtn5pm = $('<button>');
+var textarea9am = $('<input>').val(localStorage.getItem('9am'));
+var textarea10am = $('<input>').val(localStorage.getItem('10am'));
+var textarea11am = $('<input>').val(localStorage.getItem('11am'));
+var textarea12pm = $('<input>').val(localStorage.getItem('12pm'));
+var textarea1pm = $('<input>').val(localStorage.getItem('1pm'));
+var textarea2pm = $('<input>').val(localStorage.getItem('2pm'));
+var textarea3pm = $('<input>').val(localStorage.getItem('3pm'));
+var textarea4pm = $('<input>').val(localStorage.getItem('4pm'));
+var textarea5pm = $('<input>').val(localStorage.getItem('5pm'));
+var saveBtn9am = $('<button>').val(9);
+var saveBtn10am = $('<button>').val(10);
+var saveBtn11am = $('<button>').val(11);
+var saveBtn12pm = $('<button>').val(12);
+var saveBtn1pm = $('<button>').val(1);
+var saveBtn2pm = $('<button>').val(2);
+var saveBtn3pm = $('<button>').val(3);
+var saveBtn4pm = $('<button>').val(4);
+var saveBtn5pm = $('<button>').val(5);
 
 div9am.addClass(' hour row').text('9AM').append(textarea9am).append(saveBtn9am);
 div10am.addClass('hour row').text('10AM').append(textarea10am).append(saveBtn10am);
@@ -49,15 +49,17 @@ textarea3pm.addClass('textarea description ml-3');
 textarea4pm.addClass('textarea description ml-3');
 textarea5pm.addClass('textarea description ml-3');
 
-saveBtn9am.addClass('saveBtn').text('save');
-saveBtn10am.addClass('saveBtn').text('save');
-saveBtn11am.addClass('saveBtn').text('save');
-saveBtn12pm.addClass('saveBtn').text('save');
-saveBtn1pm.addClass('saveBtn').text('save');
-saveBtn2pm.addClass('saveBtn').text('save');
-saveBtn3pm.addClass('saveBtn').text('save');
-saveBtn4pm.addClass('saveBtn').text('save');
-saveBtn5pm.addClass('saveBtn').text('save');
+saveBtn9am.addClass('saveBtn').text('save').val(9);
+saveBtn10am.addClass('saveBtn').text('save').val(10);
+saveBtn11am.addClass('saveBtn').text('save').val(11);
+saveBtn12pm.addClass('saveBtn').text('save').val(12);
+saveBtn1pm.addClass('saveBtn').text('save').val(1);
+saveBtn2pm.addClass('saveBtn').text('save').val(2);
+saveBtn3pm.addClass('saveBtn').text('save').val(3);
+saveBtn4pm.addClass('saveBtn').text('save').val(4);
+saveBtn5pm.addClass('saveBtn').text('save').val(5);
+
+
 
 containerEl.append(div9am);
 containerEl.append(div10am);
@@ -68,7 +70,6 @@ containerEl.append(div2pm);
 containerEl.append(div3pm);
 containerEl.append(div4pm);
 containerEl.append(div5pm);
-
 
 function updateTimeColors() {
 
@@ -136,6 +137,38 @@ function updateTimeColors() {
         textarea5pm.addClass('present')
     }
 }
+
+$('.saveBtn').on("click", function() {
+    var btnClicked = this.value;
+
+    if (btnClicked == 9) {
+        localStorage.setItem('9am', textarea9am.val());
+    } else if (btnClicked == 10) {
+        localStorage.setItem('10am', textarea10am.val());
+    } else if (btnClicked == 11) {
+        localStorage.setItem('11am', textarea11am.val());
+    } else if (btnClicked == 12) {
+        localStorage.setItem('12pm', textarea12pm.val());
+    } else if (btnClicked == 1) {
+        localStorage.setItem('1pm', textarea1pm.val());
+    } else if (btnClicked == 2) {
+        localStorage.setItem('2pm', textarea2pm.val());
+    } else if (btnClicked == 3) {
+        localStorage.setItem('3pm', textarea3pm.val());
+    } else if (btnClicked == 4) {
+        localStorage.setItem('4pm', textarea4pm.val());
+    } else if (btnClicked == 5) {
+        localStorage.setItem('5pm', textarea5pm.val());
+    }
+})
+
+
+
+
+
+
+
+
 
 
 
