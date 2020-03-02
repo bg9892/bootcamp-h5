@@ -10,6 +10,7 @@ var div2pm = $('<div>').val(14);
 var div3pm = $('<div>').val(15);
 var div4pm = $('<div>').val(16);
 var div5pm = $('<div>').val(17);
+
 var textarea9am = $('<input>').val(localStorage.getItem('9am'));
 var textarea10am = $('<input>').val(localStorage.getItem('10am'));
 var textarea11am = $('<input>').val(localStorage.getItem('11am'));
@@ -19,6 +20,7 @@ var textarea2pm = $('<input>').val(localStorage.getItem('2pm'));
 var textarea3pm = $('<input>').val(localStorage.getItem('3pm'));
 var textarea4pm = $('<input>').val(localStorage.getItem('4pm'));
 var textarea5pm = $('<input>').val(localStorage.getItem('5pm'));
+
 var saveBtn9am = $('<button>').val(9);
 var saveBtn10am = $('<button>').val(10);
 var saveBtn11am = $('<button>').val(11);
@@ -29,7 +31,7 @@ var saveBtn3pm = $('<button>').val(3);
 var saveBtn4pm = $('<button>').val(4);
 var saveBtn5pm = $('<button>').val(5);
 
-div9am.addClass(' hour row').text('9AM').append(textarea9am).append(saveBtn9am);
+div9am.addClass('hour row').text('9AM').append(textarea9am).append(saveBtn9am);
 div10am.addClass('hour row').text('10AM').append(textarea10am).append(saveBtn10am);
 div11am.addClass('hour row').text('11AM').append(textarea11am).append(saveBtn11am);
 div12pm.addClass('hour row').text('12PM').append(textarea12pm).append(saveBtn12pm);
@@ -39,27 +41,25 @@ div3pm.addClass('hour row').text('3PM').append(textarea3pm).append(saveBtn3pm);
 div4pm.addClass('hour row').text('4PM').append(textarea4pm).append(saveBtn4pm);
 div5pm.addClass('hour row').text('5PM').append(textarea5pm).append(saveBtn5pm);
 
-textarea9am.addClass('textarea description ml-3');
-textarea10am.addClass('textarea description ml-2');
-textarea11am.addClass('textarea description ml-2');
-textarea12pm.addClass('textarea description ml-2');
-textarea1pm.addClass('textarea description ml-3');
-textarea2pm.addClass('textarea description ml-3');
-textarea3pm.addClass('textarea description ml-3');
-textarea4pm.addClass('textarea description ml-3');
-textarea5pm.addClass('textarea description ml-3');
+textarea9am.addClass('textarea description ml-3 col-md-10');
+textarea10am.addClass('textarea description ml-2 col-md-10');
+textarea11am.addClass('textarea description ml-2 col-md-10');
+textarea12pm.addClass('textarea description ml-2 col-md-10');
+textarea1pm.addClass('textarea description ml-3 col-md-10');
+textarea2pm.addClass('textarea description ml-3 col-md-10');
+textarea3pm.addClass('textarea description ml-3 col-md-10');
+textarea4pm.addClass('textarea description ml-3 col-md-10');
+textarea5pm.addClass('textarea description ml-3 col-md-10');
 
-saveBtn9am.addClass('saveBtn').text('save').val(9);
-saveBtn10am.addClass('saveBtn').text('save').val(10);
-saveBtn11am.addClass('saveBtn').text('save').val(11);
-saveBtn12pm.addClass('saveBtn').text('save').val(12);
-saveBtn1pm.addClass('saveBtn').text('save').val(1);
-saveBtn2pm.addClass('saveBtn').text('save').val(2);
-saveBtn3pm.addClass('saveBtn').text('save').val(3);
-saveBtn4pm.addClass('saveBtn').text('save').val(4);
-saveBtn5pm.addClass('saveBtn').text('save').val(5);
-
-
+saveBtn9am.addClass('saveBtn col-md-1').text('save').val(9);
+saveBtn10am.addClass('saveBtn col-md-1').text('save').val(10);
+saveBtn11am.addClass('saveBtn col-md-1').text('save').val(11);
+saveBtn12pm.addClass('saveBtn col-md-1').text('save').val(12);
+saveBtn1pm.addClass('saveBtn col-md-1').text('save').val(1);
+saveBtn2pm.addClass('saveBtn col-md-1').text('save').val(2);
+saveBtn3pm.addClass('saveBtn col-md-1').text('save').val(3);
+saveBtn4pm.addClass('saveBtn col-md-1').text('save').val(4);
+saveBtn5pm.addClass('saveBtn col-md-1').text('save').val(5);
 
 containerEl.append(div9am);
 containerEl.append(div10am);
@@ -161,15 +161,5 @@ $('.saveBtn').on("click", function() {
         localStorage.setItem('5pm', textarea5pm.val());
     }
 })
-
-
-
-
-
-
-
-
-
-
 
 updateTimeColors();
