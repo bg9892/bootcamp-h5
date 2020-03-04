@@ -1,3 +1,4 @@
+// set div elements to variables and set values
 $('#currentDay').text(moment().format("MMM Do YYYY"));
 var time = parseInt(moment().format('H'));
 var containerEl = $('.container');
@@ -11,6 +12,7 @@ var div3pm = $('<div>').val(15);
 var div4pm = $('<div>').val(16);
 var div5pm = $('<div>').val(17);
 
+// set input elements to variables and get values from local storage
 var textarea9am = $('<input>').val(localStorage.getItem('9am'));
 var textarea10am = $('<input>').val(localStorage.getItem('10am'));
 var textarea11am = $('<input>').val(localStorage.getItem('11am'));
@@ -21,6 +23,7 @@ var textarea3pm = $('<input>').val(localStorage.getItem('3pm'));
 var textarea4pm = $('<input>').val(localStorage.getItem('4pm'));
 var textarea5pm = $('<input>').val(localStorage.getItem('5pm'));
 
+// Set button elements to variables and set values
 var saveBtn9am = $('<button>').val(9);
 var saveBtn10am = $('<button>').val(10);
 var saveBtn11am = $('<button>').val(11);
@@ -31,6 +34,7 @@ var saveBtn3pm = $('<button>').val(3);
 var saveBtn4pm = $('<button>').val(4);
 var saveBtn5pm = $('<button>').val(5);
 
+// Add classes and append texareas and buttons
 div9am.addClass('hour row').text('9AM').append(textarea9am).append(saveBtn9am);
 div10am.addClass('hour row').text('10AM').append(textarea10am).append(saveBtn10am);
 div11am.addClass('hour row').text('11AM').append(textarea11am).append(saveBtn11am);
@@ -41,6 +45,7 @@ div3pm.addClass('hour row').text('3PM').append(textarea3pm).append(saveBtn3pm);
 div4pm.addClass('hour row').text('4PM').append(textarea4pm).append(saveBtn4pm);
 div5pm.addClass('hour row').text('5PM').append(textarea5pm).append(saveBtn5pm);
 
+// Add classes to textareas
 textarea9am.addClass('textarea description ml-3 col-md-10');
 textarea10am.addClass('textarea description ml-2 col-md-10');
 textarea11am.addClass('textarea description ml-2 col-md-10');
@@ -51,6 +56,7 @@ textarea3pm.addClass('textarea description ml-3 col-md-10');
 textarea4pm.addClass('textarea description ml-3 col-md-10');
 textarea5pm.addClass('textarea description ml-3 col-md-10');
 
+// Add classes to buttons and set text
 saveBtn9am.addClass('saveBtn col-md-1').text('save').val(9);
 saveBtn10am.addClass('saveBtn col-md-1').text('save').val(10);
 saveBtn11am.addClass('saveBtn col-md-1').text('save').val(11);
@@ -61,6 +67,7 @@ saveBtn3pm.addClass('saveBtn col-md-1').text('save').val(3);
 saveBtn4pm.addClass('saveBtn col-md-1').text('save').val(4);
 saveBtn5pm.addClass('saveBtn col-md-1').text('save').val(5);
 
+// Append divs
 containerEl.append(div9am);
 containerEl.append(div10am);
 containerEl.append(div11am);
@@ -71,6 +78,7 @@ containerEl.append(div3pm);
 containerEl.append(div4pm);
 containerEl.append(div5pm);
 
+/// Finction to update colors based off current time
 function updateTimeColors() {
 
     if (div9am.val() < time) {
@@ -138,7 +146,8 @@ function updateTimeColors() {
     }
 }
 
-$('.saveBtn').on("click", function() {
+// When save button is clicked save textinout to local storage
+$('.saveBtn').on("click", function () {
     var btnClicked = this.value;
 
     if (btnClicked == 9) {
@@ -162,4 +171,17 @@ $('.saveBtn').on("click", function() {
     }
 })
 
+//Start timer with 30 sec interval
+function startTimer() {
+    interval = setInterval(function () {
+        timeLeft();
+    }, 30000);
+}
+
+// Call updateTimeColors function every 30 secs
+function timeLeft() {
+    updateTimeColors();
+}
+
 updateTimeColors();
+startTimer();
